@@ -1,0 +1,16 @@
+写一个正则表达式 匹配所有 Number 直接量
+DecimalNumber = /0|[1-9][0-9]*/
+
+写一个 UTF-8 Encoding 的函数
+//不太会做，尝试实现了 http://www.ruanyifeng.com/blog/2007/10/ascii_unicode_and_utf-8.html 里面的举例
+function UTF8Encoding(){
+    binaryCode = "100111000100101";
+    let firstBit;
+    if(binaryCode.length-12<=4){
+        firstBit = "0".repeat(4-(binaryCode.length-12));
+    }
+    return  '1110'+ firstBit + binaryCode.substr(0, binaryCode.length-12) + ' '  + '10' + binaryCode.substr(binaryCode.length-12, 6) + ' ' + '10'+binaryCode.substr(binaryCode.length-6)
+}
+
+写一个正则表达式，匹配所有的字符串直接量，单引号和双引号
+var re = /(("([^"\r\n\u2028\u2029\\]|\u2028|\u2029|\\((['"\bfnrtv]|[^'"\bfnrtvdxu\r\n\u2028\u2029])|0(?!d)|x[0-9a-fA-F][0-9a-fA-F]|(u[0-9a-fA-F]{4}|u{(0[0-9a-fA-F]{5}|10[0-9a-fA-F]{4}|[0-9a-fA-F]{1,4})}))|\\(\r\n|[\r\n\u2028\u2029]))*"|'([^'\r\n\u2028\u2029\\]|\u2028|\u2029|\\((['"\bfnrtv]|[^'"\bfnrtvdxu\r\n\u2028\u2029])|0(?!d)|x[0-9a-fA-F][0-9a-fA-F]|(u[0-9a-fA-F]{4}|u{(0[0-9a-fA-F]{5}|10[0-9a-fA-F]{4}|[0-9a-fA-F]{1,4})}))|\\(\r\n|[\r\n\u2028\u2029]))*'))/
